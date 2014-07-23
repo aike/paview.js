@@ -1,7 +1,7 @@
 ##PaView.js - JavaScript Spherical Movie Viewer
 
 ##Description
-PaView.js is a JavaScript movie viewer program.
+PaView.js is a JavaScript spherical movie viewer program.
 
 ##How To Use
 load script with [Three.js](http://threejs.org/)
