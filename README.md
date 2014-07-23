@@ -52,7 +52,7 @@ with customize option
 | degree | array of axis angle [x, y, z]| [0..360,0..360,0..360] | [0,0,0] |
 
 ##Demo Page
-http://aikelab.net/paview/
+http://sound.jp/aike/paview/
 
 ##NOTE
  - PaView.js requires web server. It does not work from local file.
