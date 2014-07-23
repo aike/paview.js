@@ -47,8 +47,6 @@ with customize option
 | srcheight  | height of movie (required)| number | - |
 | width  | width of view area | number | 500  |
 | height  | height of view area | number | 300  |
-| rotation  | start rotation on page load | true/false | false  |
-| speed    | rotation speed | -100..100 | 10 |
 | zoom    | zoom up movie | 20..130 | 70 |
 | firstview | degree of initial view | 0..360 | 0 |
 | degree | array of axis angle [x, y, z]| [0..360,0..360,0..360] | [0,0,0] |
