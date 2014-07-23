@@ -51,7 +51,6 @@ ThView.prototype.rotateCamera = function(x, y) {
 	var limit = Math.PI / 2 - 0.1;
 	if (this.tilt > limit) this.tilt = limit;
 	if (this.tilt < -limit) this.tilt = -limit;
-	console.log(this.tilt);
 
 	this.cameraDir.x = Math.sin(this.pan) * Math.cos(this.tilt);
 	this.cameraDir.z = Math.cos(this.pan) * Math.cos(this.tilt);
