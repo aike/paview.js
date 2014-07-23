@@ -42,15 +42,15 @@ with customize option
 | keyword |   description   |  range |  default |
 |:----------:|:------------------|:--------:|:---------:|
 |  id  |  ID of parent div element (required)| - | - |
-| file  | image file name (required)| - | - |
+| file  | movie file name (required)| - | - |
 | srcwidth  | width of movie (required)| number | - |
 | srcheight  | height of movie (required)| number | - |
 | width  | width of view area | number | 500  |
 | height  | height of view area | number | 300  |
 | rotation  | start rotation on page load | true/false | false  |
 | speed    | rotation speed | -100..100 | 10 |
-| zoom    | zoom up image | 10..500 | 70 |
-| firstview | degree of initial image | 0..360 | 0 |
+| zoom    | zoom up movie | 20..130 | 70 |
+| firstview | degree of initial view | 0..360 | 0 |
 | degree | array of axis angle [x, y, z]| [0..360,0..360,0..360] | [0,0,0] |
 
 ##Demo Page
