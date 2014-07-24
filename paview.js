@@ -5,7 +5,7 @@
  *
  */
 
-var ThView = function(arg) {
+var PaView = function(arg) {
 	///////// degree to radian utility function
 	var d2r = function(d) { return d * Math.PI / 180; };
 
@@ -36,7 +36,7 @@ var ThView = function(arg) {
 }
 
 ///////// drag callback
-ThView.prototype.rotateCamera = function(x, y) {
+PaView.prototype.rotateCamera = function(x, y) {
 	if (!this.mousedown)
 		return;
 
@@ -61,7 +61,7 @@ ThView.prototype.rotateCamera = function(x, y) {
 }
 
 ///////// wheel callback
-ThView.prototype.zoomCamera = function(val) {
+PaView.prototype.zoomCamera = function(val) {
 	this.zoom += val * 0.1;
 	if (this.zoom < 20) this.zoom = 20;
 	if (this.zoom > 130) this.zoom = 130;
@@ -71,7 +71,7 @@ ThView.prototype.zoomCamera = function(val) {
 
 
 ///////// main process
-ThView.prototype.show = function() {
+PaView.prototype.show = function() {
 	var self = this;
 	this.element = document.getElementById(this.id);
 
