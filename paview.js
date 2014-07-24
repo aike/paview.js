@@ -84,7 +84,7 @@ ThView.prototype.show = function() {
 	else
 		renderer = new THREE.CSS3DRenderer({ antialias:true });
 	renderer.setSize(this.width, this.height);
-	renderer.setClearColorHex(0x000000, 1);
+	renderer.setClearColor(0x000000, 1);
 	this.element.appendChild(renderer.domElement);	// append to <DIV>
 
 	///////// callback setting
