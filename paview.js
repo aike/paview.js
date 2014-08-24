@@ -74,7 +74,7 @@ PaView.prototype.zoomCamera = function(val) {
 PaView.prototype.show = function() {
 	var self = this;
 	this.element = document.getElementById(this.id);
-
+/*
 	this.outflag = false;
 	$('#' + this.id).hover(
 		function() {
@@ -98,7 +98,7 @@ PaView.prototype.show = function() {
 	$('#info').hover(
 		function() { self.outflag = false; }
 	);
-
+*/
 	///////// RENDERER
 	var renderer;
 	if (this.rendererType == 0)
