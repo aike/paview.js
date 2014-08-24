@@ -75,6 +75,30 @@ PaView.prototype.show = function() {
 	var self = this;
 	this.element = document.getElementById(this.id);
 
+	this.outflag = false;
+	$('#' + this.id).hover(
+		function() {
+			if ($('#info').css('display') === 'none')
+				$('#info').css('display', 'block');
+			self.outflag = false;
+		},
+		function() {
+			self.outflag = true;
+			setTimeout(function() {
+				if ($('#info').css('display') === 'block') {
+					if (self.outflag) {
+						$('#info').css('display', 'none');
+						self.outflag = false;
+					}
+				}
+			}, 300);
+		}
+	);
+
+	$('#info').hover(
+		function() { self.outflag = false; }
+	);
+
 	///////// RENDERER
 	var renderer;
 	if (this.rendererType == 0)
@@ -94,7 +118,19 @@ PaView.prototype.show = function() {
 		self.oldPosition = {x:e.pageX, y:e.pageY};
 	};
 	this.element.onmousemove = function(e) { self.rotateCamera(e.pageX, e.pageY); };
-	this.element.onmousewheel = function(e) { self.zoomCamera(e.deltaY); };
+
+	// chrome / safari / IE
+	this.element.onmousewheel = function(e) {
+		var delta = e.deltaY ? e.deltaY : e.wheelDelta ? -e.wheelDelta : -e.wheelDeltaY * 0.2;
+		self.zoomCamera(delta);
+		e.preventDefault();
+	};
+	// firefox
+	this.element.addEventListener("DOMMouseScroll", function(e) {
+		self.zoomCamera(e.detail * 5);
+		e.preventDefault();
+	});
+
 
 	///////// SCENE
 	var scene = new THREE.Scene();
@@ -114,10 +150,32 @@ PaView.prototype.show = function() {
 
 	///////// VIDEO
 	var video = document.createElement('video');
-	video.src = this.file;
+	var src = this.file;
+	var ua = window.navigator.userAgent.toLowerCase();
+	if ((ua.indexOf('firefox') != -1) && (ua.indexOf('mac os') != -1)) {
+		src = src.replace(/\.mp4/, '.webm');
+	}
+	video.src = src;
 	video.loop = true;
 	video.load();
-	video.play();
+//	video.addEventListener("canplaythrough", function(){
+		video.play();
+//	}, false);
+
+	// pause/restart
+	this.playing = true;
+	document.onkeydown = function (e) {
+		if (e.keyCode === 0x20) {	// space key
+			if (self.playing) {
+				video.pause();
+				self.playing = false;
+			} else {
+				video.play();
+				self.playing = true;
+			}
+			e.preventDefault();
+		}
+	};
 
 	var videoCanvas = document.createElement('canvas');
 	videoCanvas.width = this.srcwidth;

@@ -55,6 +55,8 @@ with customize option
 http://sound.jp/aike/paview/
 
 ##NOTE
+ - PaView.js available for Chrome, Firefox, IE (Windows), Chrome, Safari (Mac OS).
+ - If you have .mp4 and .webm formated movies, Mac OS Firefox is available too.
  - PaView.js requires web server. It does not work from local file.
  - The movie file must be located at same origin.
 
