@@ -174,7 +174,10 @@ PaView.prototype.show = function() {
 	this.element.style.width = this.width + 'px';
 	this.element.style.height = this.height + 'px';
 	this.element.style.cursor = 'default';
-	this.element.style.position = 'relative';
+	if ((this.element.style.position !== 'absolute')
+	||  (this.element.style.position !== 'fixed')) {
+		this.element.style.position = 'relative';
+	}
 
 	this.element.onmouseover = function() {
 		self.ctrl.style.display = 'block';
