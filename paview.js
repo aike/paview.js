@@ -78,9 +78,13 @@ PaView.prototype.pause = function() {
 		this.video.pause();
 		this.btn.style.display = 'block';
 		this.ctrl.style.display = 'block';
+		if (this.info)
+			this.info.style.display = 'block';
 	} else {
 		this.video.play();
 		this.btn.style.display = 'none';
+		if (this.info)
+			this.info.style.display = 'none';
 	}
 	this.playing = !this.playing;
 }
@@ -178,6 +182,8 @@ PaView.prototype.show = function() {
 	this.element.onmouseleave = function() {
 		self.fadeoutCtrlBar();
 	};
+
+	this.info = document.getElementById('paviewinfo');
 
 	// start button
 	this.btn = document.createElement('canvas');
