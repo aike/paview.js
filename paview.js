@@ -175,7 +175,7 @@ PaView.prototype.show = function() {
 	this.element.style.height = this.height + 'px';
 	this.element.style.cursor = 'default';
 	if ((this.element.style.position !== 'absolute')
-	||  (this.element.style.position !== 'fixed')) {
+	&&  (this.element.style.position !== 'fixed')) {
 		this.element.style.position = 'relative';
 	}
 
