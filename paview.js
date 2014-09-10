@@ -102,17 +102,23 @@ PaView.prototype.fadeoutCtrlBar = function() {
 
 PaView.prototype.drawCtrlBar = function(ratio) {
 	var bar1;
+	var bar2;
 	if (ratio !== undefined) {
 		bar1 = this.barlen * ratio;
+		bar2 = bar1;
 	} else {
 		bar1 = this.barlen * this.video.currentTime / this.video.duration;
+		var buf = this.video.buffered;
+		bar2 = this.barlen * buf.end(buf.length - 1) / this.video.duration;
 	}
-	var bar2 = this.barlen - bar1;
+//	var bar3 = this.barlen - bar1;
 	this.ctrlctx.clearRect(10, 3, this.barlen, 14);
-	this.ctrlctx.fillStyle = 'rgba(200,200,200,0.5)';
+	this.ctrlctx.fillStyle = 'rgba(220,220,220,0.6)';
 	this.ctrlctx.fillRect(10, 3, bar1, 14);
-	this.ctrlctx.fillStyle = 'rgba(100,100,100,0.5)';
-	this.ctrlctx.fillRect(10 + bar1, 3, bar2, 14);
+	this.ctrlctx.fillStyle = 'rgba(130,130,130,0.6)';
+	this.ctrlctx.fillRect(10 + bar1, 3, bar2 - bar1, 14);
+	this.ctrlctx.fillStyle = 'rgba(100,100,100,0.6)';
+	this.ctrlctx.fillRect(10 + bar2, 3, this.barlen - bar2, 14);
 
 	this.drawVolume(this.ctrlctx, this.barlen + 20, 3, this.vollen , 14, this.video.volume);
 }
@@ -146,14 +152,14 @@ PaView.prototype.drawVolume = function(ctx, x, y, w, h, val) {
 	ctx.lineTo(x + w, y);
 	ctx.closePath();
 	ctx.fill();
-	this.ctrlctx.fillStyle = 'rgba(200,200,200,0.5)';
+	this.ctrlctx.fillStyle = 'rgba(220,220,220,0.6)';
 	ctx.beginPath();
 	ctx.moveTo(x, y + h);
 	ctx.lineTo(x + w * val, y + h);
 	ctx.lineTo(x + w * val, y + h * (1 - val));
 	ctx.closePath();
 	ctx.fill();
-	this.ctrlctx.fillStyle = 'rgba(100,100,100,0.5)';
+	this.ctrlctx.fillStyle = 'rgba(100,100,100,0.6)';
 	ctx.beginPath();
 	ctx.moveTo(x + w * val, y + h);
 	ctx.lineTo(x + w * val, y + h * (1 - val));
