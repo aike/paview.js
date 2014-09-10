@@ -111,7 +111,6 @@ PaView.prototype.drawCtrlBar = function(ratio) {
 		var buf = this.video.buffered;
 		bar2 = this.barlen * buf.end(buf.length - 1) / this.video.duration;
 	}
-//	var bar3 = this.barlen - bar1;
 	this.ctrlctx.clearRect(10, 3, this.barlen, 14);
 	this.ctrlctx.fillStyle = 'rgba(220,220,220,0.6)';
 	this.ctrlctx.fillRect(10, 3, bar1, 14);
