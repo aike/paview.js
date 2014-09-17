@@ -32,6 +32,7 @@ var PaView = function(arg) {
 	this.mousedown = false;
 
 	///////// etc
+	this.fading = false;
 	this.seekwait = 0;
 
 	///////// call main process
@@ -90,6 +91,11 @@ PaView.prototype.pause = function() {
 }
 
 PaView.prototype.fadeoutCtrlBar = function() {
+	if (!this.fading) {	// break
+		this.ctrl.style.display = 'block';
+		this.ctrl.style.opacity = 1.0;
+		return;
+	}
 	this.ctrl.style.opacity -= 0.1;
 	if (this.ctrl.style.opacity < 0) {
 		this.ctrl.style.display = 'none';
@@ -186,8 +192,10 @@ PaView.prototype.show = function() {
 
 	this.element.onmouseover = function() {
 		self.ctrl.style.display = 'block';
+		self.fading = false;
 	};
 	this.element.onmouseleave = function() {
+		self.fading = true;
 		self.fadeoutCtrlBar();
 	};
 
