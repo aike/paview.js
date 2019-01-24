@@ -1,9 +1,9 @@
-##PaView.js - JavaScript Spherical Movie Viewer
+## PaView.js - JavaScript Spherical Movie Viewer
 
-##Description
+## Description
 PaView.js is a JavaScript spherical movie viewer program.
 
-##How To Use
+## How To Use
 load script with [Three.js](http://threejs.org/)
 
     <script type="text/javascript" src="three.min.js"></script>
@@ -38,7 +38,7 @@ with customize option
     </script>
 
 
-##Option
+## Option
 | keyword |   description   |  range |  default |
 |:----------:|:------------------|:--------:|:---------:|
 |  id  |  ID of parent div element (required)| - | - |
@@ -51,14 +51,14 @@ with customize option
 | firstview | degree of initial view | 0..360 | 0 |
 | degree | array of axis angle [x, y, z]| [0..360,0..360,0..360] | [0,0,0] |
 
-##Demo Page
+## Demo Page
 http://sound.jp/aike/paview/
 
-##NOTE
+## NOTE
  - PaView.js available for Chrome, Firefox, IE (Windows), Chrome, Safari (Mac OS).
  - If you have .mp4 and .webm formated movies, Mac OS Firefox is available too.
  - PaView.js requires web server. It does not work from local file.
  - The movie file must be located at same origin.
 
-##Credit
+## Credit
 PaView.js is licenced under MIT License. Copyright 2014, aike (@aike1000)
